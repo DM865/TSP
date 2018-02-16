@@ -6,13 +6,13 @@ Created on Thu Feb 15 18:53:02 2018
 @author: marco
 """
 
-import data
-import algorithms
-import assessment
-import benchmarking
+from data import *
+from algorithms import *
+from assessment import *
+from benchmarking import *
 
 
-@functools.lru_cache(None)
+# @functools.lru_cache(None)
 def benchmark(function, inputs):
     "Run function on all the inputs; return pair of (average_time_taken, results)."
     t0           = time.clock()

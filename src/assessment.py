@@ -6,7 +6,8 @@ Created on Thu Feb 15 18:46:50 2018
 @author: marco
 """
 
-import data
+from data import *
+from algorithms import *
 
 
 def plot_lines(points, style='bo-'):
@@ -38,5 +39,4 @@ def valid_tour(tour, cities):
 
 def tour_length(tour):
     "The total of distances between each pair of consecutive cities in the tour."
-    return sum(distance(tour[i], tour[i-1]) 
-               for i in range(len(tour)))
+    return sum(distance(tour[i], tour[i-1]) for i in range(len(tour)))

@@ -6,10 +6,10 @@ Created on Thu Feb 15 18:50:19 2018
 @author: marco
 """
 
-import data
-import algorithms
-import assessment
-import benchmarking
+from  data import *
+from algorithms import *
+from assessment import *
+from benchmarking import *
 
 
 def length_ratio(cities): 

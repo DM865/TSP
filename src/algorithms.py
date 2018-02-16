@@ -6,8 +6,9 @@ Created on Thu Feb 15 18:38:45 2018
 @author: marco
 """
 
-import data
+from data import *
 import itertools
+from assessment import *
 
 
 def alltours_tsp(cities):
@@ -25,8 +26,7 @@ alltours = itertools.permutations
 def alltours(cities):
     "Return a list of tours, each a permutation of cities, but each one starting with the same city."
     start = first(cities)
-    return [[start] + Tour(rest)
-            for rest in itertools.permutations(cities - {start})]
+    return [[start] + Tour(rest) for rest in itertools.permutations(cities - {start})]
 
 def first(collection):
     "Start iterating over collection, and return the first element."
@@ -57,8 +57,7 @@ def nearest_neighbor(A, cities):
 
 def repeated_nn_tsp(cities, repetitions=100):
     "Repeat the nn_tsp algorithm starting from specified number of cities; return the shortest tour."
-    return shortest_tour(nn_tsp(cities, start) 
-                         for start in sample(cities, repetitions))
+    return shortest_tour(nn_tsp(cities, start) for start in sample(cities, repetitions))
 
 def sample(population, k, seed=42):
     "Return a list of k elements sampled from population. Set random.seed with seed."
@@ -85,8 +84,7 @@ def greedy_tsp(cities):
             
 def shortest_edges_first(cities):
     "Return all edges between distinct cities, sorted shortest first."
-    edges = [(A, B) for A in cities for B in cities 
-                    if id(A) < id(B)]
+    edges = [(A, B) for A in cities for B in cities if id(A) < id(B)]
     return sorted(edges, key=lambda edge: distance(*edge))
 
 
@@ -140,7 +138,3 @@ def rotations(sequence):
     "All possible rotations of a sequence."
     # A rotation is some suffix of the sequence followed by the rest of the sequence.
     return [sequence[i:] + sequence[:i] for i in range(len(sequence))]
-
-
-
-
