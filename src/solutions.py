@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb 15 18:46:50 2018
+Created on Thu Feb 15 18:38:45 2018
 
 @author: marco
 """
 
 from data import *
-from algorithms import *
+
+
+Tour = list  # Tours are implemented as lists of cities
 
 
 def plot_lines(points, style='bo-'):
@@ -40,3 +42,14 @@ def valid_tour(tour, cities):
 def tour_length(tour):
     "The total of distances between each pair of consecutive cities in the tour."
     return sum(distance(tour[i], tour[i-1]) for i in range(len(tour)))
+
+
+def first(collection):
+    "Start iterating over collection, and return the first element."
+    return next(iter(collection))
+
+
+
+def shortest_tour(tours): 
+    "Choose the tour with the minimum tour length."
+    return min(tours, key=tour_length)

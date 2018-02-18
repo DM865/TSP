@@ -7,8 +7,10 @@ Created on Thu Feb 15 18:53:02 2018
 """
 
 from data import *
-from algorithms import *
-from assessment import *
+
+from solutions import *
+from c_heuristics import *
+from metaheuristics import *
 from benchmarking import *
 
 

@@ -6,17 +6,35 @@ Created on Thu Feb 15 18:50:19 2018
 @author: marco
 """
 
-from  data import *
-from algorithms import *
-from assessment import *
+import sys 
+from data import *
+from solutions import *
+
+from enumeration import *
+from dq import *
+from held_karp import *
+
+from c_heuristics import *
+from localsearch import *
+from metaheuristics import *
+
+
 from benchmarking import *
 
+
+
+print(hk_tsp(Cities(5,seed=1)))
+
+sys.exit(0)
 
 def length_ratio(cities): 
     "The ratio of the tour lengths for nn_tsp and alltours_tsp algorithms."
     return tour_length(nn_tsp(cities)) / tour_length(alltours_tsp(cities))
 
-sorted(length_ratio(Cities(8, seed=i*i)) for i in range(11))
+print(sorted(length_ratio(Cities(8, seed=i*i)) for i in range(11)))
+
+sys.exit(0)
+
 
 def repeat_10_nn_tsp(cities): return repeated_nn_tsp(cities, 10)
 def repeat_100_nn_tsp(cities): return repeated_nn_tsp(cities, 100)

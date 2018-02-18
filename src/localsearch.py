@@ -6,10 +6,11 @@ Created on Thu Feb 15 18:55:34 2018
 @author: marco
 """
 
-import data
-import algorithms
-import assessment
-import benchmarking
+from data import *
+
+from solutions import *
+from c_heuristics import *
+
 
 
 def reverse_segment_if_better(tour, i, j):
@@ -21,6 +22,7 @@ def reverse_segment_if_better(tour, i, j):
         tour[i:j] = reversed(tour[i:j])
         
         
+
 def alter_tour(tour):
     "Try to alter tour for the better by reversing segments."
     original_length = tour_length(tour)
@@ -40,15 +42,6 @@ def all_segments(N):
 def altered_nn_tsp(cities):
     "Run nearest neighbor TSP algorithm, and alter the results by reversing segments."
     return alter_tour(nn_tsp(cities))
-
-
-def repeated_altered_nn_tsp(cities, repetitions=20): 
-    "Use alteration to improve each repetition of nearest neighbors."
-    return shortest_tour(alter_tour(nn_tsp(cities, start)) 
-                         for start in sample(cities, repetitions))
-
-def repeat_5_altered_nn_tsp(cities): return repeated_altered_nn_tsp(cities, 5)
-
 
 
 def altered_greedy_tsp(cities):
