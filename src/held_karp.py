@@ -21,7 +21,7 @@ def hk_tsp(cities):
 @functools.lru_cache(None)
 def shortest_segment(A, Bs, C):
     "The shortest segment starting at A, going through all Bs, and ending at C."
-    print(A,Bs,C)
+    #print(A,Bs,C)
     if not Bs:
         return [A, C]
     else:

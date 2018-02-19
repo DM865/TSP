@@ -22,18 +22,20 @@ from metaheuristics import *
 from benchmarking import *
 
 
-
-print(hk_tsp(Cities(5,seed=1)))
+altered_canonical(Cities(30,seed=1))
 
 sys.exit(0)
+#print(hk_tsp(Cities(5,seed=1)))
+
+#sys.exit(0)
 
 def length_ratio(cities): 
     "The ratio of the tour lengths for nn_tsp and alltours_tsp algorithms."
     return tour_length(nn_tsp(cities)) / tour_length(alltours_tsp(cities))
 
-print(sorted(length_ratio(Cities(8, seed=i*i)) for i in range(11)))
+#print(sorted(length_ratio(Cities(8, seed=i*i)) for i in range(11)))
 
-sys.exit(0)
+#sys.exit(0)
 
 
 def repeat_10_nn_tsp(cities): return repeated_nn_tsp(cities, 10)
