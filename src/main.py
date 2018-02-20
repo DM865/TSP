@@ -6,8 +6,9 @@ Created on Thu Feb 15 18:50:19 2018
 @author: marco
 """
 
-import sys 
+import sys
 from data import *
+from data2 import *
 from solutions import *
 
 from enumeration import *
@@ -16,20 +17,29 @@ from held_karp import *
 
 from c_heuristics import *
 from localsearch import *
+from three_opt import *
 from metaheuristics import *
-
 
 from benchmarking import *
 
 
-altered_canonical(Cities(30,seed=1))
+
+#plot_lines(USA_map, 'bo')
+#plt.show()
+#altered_canonical(Cities(30,seed=1))
+#altered_canonical(USA_map)
+
+
+algorithms = [three_opt_canonical]
+benchmarks(algorithms, tuple(USA_map for i in range(10)))
+
 
 sys.exit(0)
 #print(hk_tsp(Cities(5,seed=1)))
 
 #sys.exit(0)
 
-def length_ratio(cities): 
+def length_ratio(cities):
     "The ratio of the tour lengths for nn_tsp and alltours_tsp algorithms."
     return tour_length(nn_tsp(cities)) / tour_length(alltours_tsp(cities))
 

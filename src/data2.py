@@ -6,6 +6,9 @@ Created on Thu Feb 15 19:11:54 2018
 @author: marco
 """
 
+import csv
+from data import *
+
 def lines(text): return text.strip().splitlines()
 
 def Coordinate_map(lines, delimiter=' ', lat_col=1, long_col=2, lat_scale=69, long_scale=-48):
@@ -13,11 +16,11 @@ def Coordinate_map(lines, delimiter=' ', lat_col=1, long_col=2, lat_scale=69, lo
     Specify the column delimiter, and the zero-based column number of lat and long.
     Treat long/lat as a square x/y grid, scaled by long_scale and lat_scale.
     Source can be a file object, or list of lines."""
-    return frozenset(City(long_scale * float(row[long_col]), 
+    return frozenset(City(long_scale * float(row[long_col]),
                           lat_scale  * float(row[lat_col]))
                      for row in csv.reader(lines, delimiter=delimiter, skipinitialspace=True))
-    
-    
+
+
 USA_map = Coordinate_map(lines("""
 [TCL]  33.23   87.62  Tuscaloosa,AL
 [FLG]  35.13  111.67  Flagstaff,AZ
@@ -159,8 +162,8 @@ Lost World Caverns, Lewisburg, WV	37.801788	-80.445630
 
 
 
-def continental_USA(line): 
+def continental_USA(line):
     "Does line denote a city in the continental United States?"
     return line.startswith('[') and ',AK' not in line and ',HI' not in line
 
-USA_big_map = Coordinate_map(filter(continental_USA, open('latlong.htm')))
+# USA_big_map = Coordinate_map(filter(continental_USA, open('latlong.htm')))

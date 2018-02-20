@@ -25,7 +25,7 @@ def benchmark(function, inputs):
 
 
 def benchmarks(tsp_algorithms, maps=Maps(30, 60)):
-    "Print benchmark statistics for each of the algorithms."    
+    "Print benchmark statistics for each of the algorithms."
     for tsp in tsp_algorithms:
         time, results = benchmark(tsp, maps)
         lengths = [tour_length(r) for r in results]
