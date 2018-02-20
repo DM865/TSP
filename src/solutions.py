@@ -7,7 +7,8 @@ Created on Thu Feb 15 18:38:45 2018
 """
 
 from data import *
-
+import matplotlib
+import matplotlib.pyplot as plt
 
 Tour = list  # Tours are implemented as lists of cities
 
@@ -33,7 +34,8 @@ def plot_tour(tour):
     start = tour[0]
     plot_lines(list(tour) + [start])
     plot_lines([start], 'rs') # Mark the start city with a red square
-    
+    plt.show()
+
 def valid_tour(tour, cities):
     "Is tour a valid tour for these cities?"
     return set(tour) == set(cities) and len(tour) == len(cities)
