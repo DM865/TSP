@@ -7,6 +7,7 @@ Created on Thu Feb 15 18:50:19 2018
 """
 
 import sys
+
 from data import *
 from data2 import *
 from solutions import *
@@ -23,21 +24,27 @@ from metaheuristics import *
 from benchmarking import *
 
 
+# plot_lines(USA_map, 'bo')
+# plt.show()
+# altered_canonical(Cities(30,seed=1))
+altered_canonical(USA_map)
+sys.exit(0)
 
-#plot_lines(USA_map, 'bo')
-#plt.show()
-#altered_canonical(Cities(30,seed=1))
-#altered_canonical(USA_map)
 
+algorithms = [hk_tsp]
+benchmarks(algorithms, Maps(2, 10))
 
-algorithms = [three_opt_canonical]
+sys.exit(0)
+
+#algorithms = [three_opt_canonical]
+algorithms = [greedy_tsp, nn_tsp]
 benchmarks(algorithms, tuple(USA_map for i in range(10)))
 
 
-sys.exit(0)
-#print(hk_tsp(Cities(5,seed=1)))
+# print(hk_tsp(Cities(5,seed=1)))
 
-#sys.exit(0)
+sys.exit(0)
+
 
 def length_ratio(cities):
     "The ratio of the tour lengths for nn_tsp and alltours_tsp algorithms."
@@ -45,17 +52,22 @@ def length_ratio(cities):
 
 #print(sorted(length_ratio(Cities(8, seed=i*i)) for i in range(11)))
 
-#sys.exit(0)
+# sys.exit(0)
 
 
 def repeat_10_nn_tsp(cities): return repeated_nn_tsp(cities, 10)
+
+
 def repeat_100_nn_tsp(cities): return repeated_nn_tsp(cities, 100)
+
+
 def repeat_25_nn_tsp(cities): return repeated_nn_tsp(cities, 25)
+
+
 def repeat_50_nn_tsp(cities): return repeated_nn_tsp(cities, 50)
 
 
 def altered_mst_tsp(cities): return alter_tour(mst_tsp(cities))
-
 
 
 algorithms = [nn_tsp, repeat_10_nn_tsp, repeat_25_nn_tsp, repeat_50_nn_tsp, repeat_100_nn_tsp]
