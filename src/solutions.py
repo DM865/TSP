@@ -15,9 +15,9 @@ Tour = list  # Tours are implemented as lists of cities
 def plot_tsp(algorithm, cities):
     "Apply a TSP algorithm to cities, plot the resulting tour, and print information."
     # Find the solution and time how long it takes
-    t0 = time.clock()
+    t0 = time.perf_counter()
     tour = algorithm(cities)
-    t1 = time.clock()
+    t1 = time.perf_counter()
     assert valid_tour(tour, cities)
     plot_tour(tour); plt.show()
     print("{} city tour with length {:.1f} in {:.3f} secs for {}"

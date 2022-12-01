@@ -23,11 +23,13 @@ from metaheuristics import *
 
 from benchmarking import *
 
-
-# plot_lines(USA_map, 'bo')
-# plt.show()
+print(hk_tsp(Cities(5,seed=1)))
+#plot_lines(USA_map, 'bo')
+#plt.show()
+#plot_tsp(altered_canonical,USA_map)
+#plt.show()
 # altered_canonical(Cities(30,seed=1))
-altered_canonical(USA_map)
+#altered_canonical(USA_map)
 sys.exit(0)
 
 

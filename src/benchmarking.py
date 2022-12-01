@@ -17,9 +17,9 @@ from benchmarking import *
 # @functools.lru_cache(None)
 def benchmark(function, inputs):
     "Run function on all the inputs; return pair of (average_time_taken, results)."
-    t0           = time.clock()
+    t0           = time.perf_counter()
     results      = [function(x) for x in inputs]
-    t1           = time.clock()
+    t1           = time.perf_counter()
     average_time = (t1 - t0) / len(inputs)
     return (average_time, results)
 
